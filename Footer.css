@@ -1,0 +1,21 @@
+.footerdiv{
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: larger;
+    height: 150px;
+}
+
+.btn{
+    display: inline-flex;
+    flex-wrap: wrap;
+    font-size: 26px;
+   border: none;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 0;
+}
