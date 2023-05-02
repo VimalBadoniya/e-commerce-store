@@ -1,23 +1,25 @@
-.container{
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: center;
-    column-gap: 200px;
+.container {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  column-gap: 200px;
 }
 
-.buttn{
-    background-color: darkcyan;
-    font-size: larger;
-    border-radius: 8px;
-    outline: none;
-    border: 2px dotted black;
-    justify-content: center;
-    display: flex;
-    
-
+.buttn {
+  background-color: darkcyan;
+  font-size: larger;
+  border-radius: 8px;
+  outline: none;
+  border: 2px dotted black;
+  justify-content: center;
+  display: flex;
 }
-.center{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+
+.buttn:hover{
+    background-color: blue;
+}
+.center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

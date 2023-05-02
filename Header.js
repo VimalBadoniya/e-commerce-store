@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FcAbout, FcFaq } from "react-icons/fc";
 import { BiHomeHeart } from "react-icons/bi";
 import { FaStore } from "react-icons/fa";
 import { BsCartCheckFill } from "react-icons/bs";
 import "./Header.css";
+import CartContext from "../source/cart-context";
 
 const Header = (props) => {
+  const ctx = useContext(CartContext)
+  
   return (
     <ul className="ul">
       <li className="li">
@@ -27,7 +30,7 @@ const Header = (props) => {
       <li className="li">
         <button className="button" onClick={props.onCart}>
           <BsCartCheckFill />
-          Your Cart <span>5</span>
+          Your Cart <span>{ctx.totalQuantity}</span>
         </button>
       </li>
     </ul>

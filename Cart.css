@@ -44,3 +44,10 @@
     padding: 15px;
     height: 40px;
 }
+.div5{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
