@@ -9,4 +9,4 @@ const Modal = (prosp)=>{
     )
 };
 
-export default Modal;
+export default React.memo(Modal);

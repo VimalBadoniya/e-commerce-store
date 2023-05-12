@@ -1,28 +1,34 @@
-import React, { useState } from 'react';
-import './App.css';
-import Header from './components/Header';
-import Brnad from './components/Brand';
-import Items from './components/Items';
-import Footer from './components/Footer';
-import Cart from './components/Cart';
-import CartProvider from './source/CartProvider';
+import React from "react";
+import "./App.css";
+import CartProvider from "./source/CartProvider";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./Home/Home";
+import Store from "./Store/Store";
+import RootUI from "./UI/RootUI";
+import About from "./About/About";
+import FAQ from "./FAQ/FAQ";
+import ErrorPage from "./UI/ErrorPage";
+import ProductDetailPage from "./UI/ProductDetailPage";
+
+const myRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootUI />,
+    errorElement: <ErrorPage />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/store", element: <Store /> },
+      { path: "/about", element: <About /> },
+      { path: "/faq", element: <FAQ /> },
+      { path: "/store/:id", element: <ProductDetailPage /> },
+    ],
+  },
+]);
 
 function App() {
-  const [isCart , setCart] = useState(false);
-  const showCartHandler = ()=>{
-    setCart(true)
-  }
-  const hideCartHandler = ()=>{
-    setCart(false)
-  }
-
   return (
     <CartProvider className="App">
-      <Header onCart={showCartHandler}/>
-      <Brnad/>
-      <Items  onCartShow={showCartHandler}/>
-      <Footer/>
-      {isCart && <Cart onCartClose={hideCartHandler}/>}
+      <RouterProvider router={myRouter} />
     </CartProvider>
   );
 }

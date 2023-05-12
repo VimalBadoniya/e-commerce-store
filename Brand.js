@@ -1,10 +1,12 @@
 import React from "react";
 import "./Brand.css"
 
-const Brnad = ()=>{
+const Brand = ()=>{
+    
     return(
-        <section className="brand">The Generics</section>
+        <section className="brand">The Generics</section>  
+       
     )
 };
 
-export default Brnad ;
+export default React.memo(Brand) ;

@@ -1,0 +1,51 @@
+.table {
+  border-collapse: collapse;
+  font-size: large;
+  margin-bottom: 20px;
+  color: aquamarine;
+}
+
+.h2 {
+  font-family: cursive, sans-serif;
+  color: aquamarine;
+}
+
+.thead {
+  font-size: large;
+  font-weight: 500;
+}
+
+.containersection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+
+
+td, th {
+    padding: 10px;
+    border-bottom: 2px solid rgb(12, 217, 149);
+  }
+
+  .ticketButton{
+    background-color: aquamarine;
+    outline: none;
+    border: 2px solid rgb(218, 209, 209);
+    border-radius: 8px;
+    font-size: large;
+  }
+  .ticketButton:hover {
+    background-color: rgb(4, 68, 21);
+    color: aquamarine;
+    border: 2px solid aquamarine;
+  }
+tr:hover{
+  background-color: rgb(2, 40, 36);
+}
+  
+  body{
+    background-color: rgb(4, 68, 21);
+  }

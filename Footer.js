@@ -1,8 +1,8 @@
-import React from "react";
+import React,{memo} from "react";
 import "./Footer.css"
 import {AiFillYoutube} from "react-icons/ai"; 
 import {ImFacebook2} from "react-icons/im"; 
-import {BsSpotify} from "react-icons/bs"; 
+import {FaInstagramSquare} from "react-icons/fa"; 
 
 const Footer = ()=>{
     return (
@@ -11,10 +11,11 @@ const Footer = ()=>{
             <span>Follow Us On
                 <button className="btn"><AiFillYoutube/></button>
                 <button className="btn"><ImFacebook2/></button>
-                <button className="btn"><BsSpotify/></button>
+                <button className="btn"><FaInstagramSquare/></button>
             </span>
+           
         </div>
     )
 };
 
-export default Footer;
+export default memo(Footer);
