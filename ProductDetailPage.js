@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import AllProductsContext from "../source/all-products-context";
 import "./ProductDetailPage.css"
 
@@ -16,6 +16,7 @@ const ProductDetailPage = () => {
       <h1>{item.title}</h1>
       <img src={item.imageUrl} alt="product" />
       <h2>₹{item.price}</h2>
+      <Link className="button1" to=".." relative="path">Back</Link>
 
       {/* <p>{myParam.id}</p> */}
     </div>

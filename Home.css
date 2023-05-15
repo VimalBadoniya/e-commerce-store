@@ -49,3 +49,21 @@ tr:hover{
   body{
     background-color: rgb(4, 68, 21);
   }
+
+  .apiButton{
+    border-radius:8px;
+    background-color: aquamarine;
+    font-size: x-large;
+  }
+  .apiButton:hover{
+    color: aquamarine;
+    border: 2px solid aquamarine;
+    background-color:  rgb(4, 68, 21);
+  }
+  .apiButton:disabled{
+    border-radius:8px;
+   
+    
+    font-size: x-large;
+    pointer-events: none;
+  }

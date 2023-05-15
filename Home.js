@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "./Home.css";
 import Button from "../UI/Button";
+import NewMovie from "./NewMovie";
 
 const tours = [
   { date: "5th May", city: "New Delhi", venue: "Canaught Place", id: "T01" },
@@ -10,35 +11,119 @@ const tours = [
 ];
 
 const Home = () => {
-  
+  const [response, setResponse] = useState(null);
+  //const [apiButton, setApiButton] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [isForm, setIsForm] = useState(false);
+
+  const showFormHandler = () => {
+    setIsForm(true);
+  };
+  const hideFormHandler = () => {
+    setIsForm(false);
+  };
+
+  const fetchData = useCallback(async () => {
+    try {
+      setIsLoading(true); //data is being received , please wait
+      const responseData = await fetch("https://swapi.dev/api/films/1/");
+      if (!responseData.ok) {
+        throw new Error("Some Error Occured");
+      }
+      const data = await responseData.json();
+      setResponse(data);
+      setIsLoading(false); //loading complete , data can be displayed
+      //setApiButton(true);
+    } catch (err) {
+      setError(err.message);
+    }
+    setIsLoading(false);
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
   return (
-    <section className="containersection">
-      <h2 className="h2">TOURS</h2>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>City</th>
-            <th>Venue</th>
-            <th>Tickets</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tours.map((item) => {
-            return (
-              <tr key={item.id}>
-                <td>{item.date}</td>
-                <td>{item.city}</td>
-                <td>{item.venue}</td>
-                <td>
-                  <Button name="Buy Tickets" ></Button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </section>
+    <React.Fragment>
+      <section className="containersection">
+        <h2 className="h2">TOURS</h2>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>City</th>
+              <th>Venue</th>
+              <th>Tickets</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tours.map((item) => {
+              return (
+                <tr key={item.id}>
+                  <td>{item.date}</td>
+                  <td>{item.city}</td>
+                  <td>{item.venue}</td>
+                  <td>
+                    <Button name="Buy Tickets"></Button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </section>
+      <section className="containersection">
+        <button
+          className="apiButton"
+          onClick={showFormHandler}
+          style={{ fontSize: "xxlarger" }}
+        >
+          Add New Movie
+        </button>
+        {isForm && <NewMovie hideForm={hideFormHandler} />}
+      </section>
+
+      <section>
+        <div
+          className="containersection"
+          style={{ marginTop: "50px", marginBottom: "40px" }}
+        >
+          <button
+            className="apiButton"
+            onClick={fetchData}
+            //disabled={apiButton}
+          >
+            Get Movies
+          </button>
+          {response && !isLoading && (
+            <div>
+              <h1>{response.title}</h1>
+              <h2>
+                <span>Directed By : {response.director}</span>
+                <br></br>
+                <span>Produced By : {response.producer}</span>
+              </h2>
+            </div>
+          )}
+          {isLoading && (
+            <p style={{ fontSize: "larger" }}>Getting Data Please Wait...</p>
+          )}
+
+          {error && !isLoading && (
+            <div>
+              <h3>
+                {error}.
+                <button className="button" onClick={fetchData}>
+                  Retry
+                </button>
+              </h3>
+            </div>
+          )}
+        </div>
+      </section>
+    </React.Fragment>
   );
 };
 
