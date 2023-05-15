@@ -1,14 +1,16 @@
 import React, { useState, useCallback, useEffect } from "react";
 import "./Home.css";
-import Button from "../UI/Button";
+// import Button from "../UI/Button";
 import NewMovie from "./NewMovie";
+import Tours from "./Tours";
+import GetMovies from "./GetMovies";
 
-const tours = [
-  { date: "5th May", city: "New Delhi", venue: "Canaught Place", id: "T01" },
-  { date: "7th May", city: "Indore", venue: "Holker Stadium", id: "T02" },
-  { date: "10th May", city: "Jodhpur", venue: "Ummaid Bhavan", id: "T03" },
-  { date: "15th May", city: "Surat", venue: "Sindhi House", id: "T04" },
-];
+// const tours = [
+//   { date: "5th May", city: "New Delhi", venue: "Canaught Place", id: "T01" },
+//   { date: "7th May", city: "Indore", venue: "Holker Stadium", id: "T02" },
+//   { date: "10th May", city: "Jodhpur", venue: "Ummaid Bhavan", id: "T03" },
+//   { date: "15th May", city: "Surat", venue: "Sindhi House", id: "T04" },
+// ];
 
 const Home = () => {
   const [response, setResponse] = useState(null);
@@ -27,12 +29,13 @@ const Home = () => {
   const fetchData = useCallback(async () => {
     try {
       setIsLoading(true); //data is being received , please wait
-      const responseData = await fetch("https://swapi.dev/api/films/1/");
+      const responseData = await fetch("https://crudcrud.com/api/37695353e0ed4a41a42fe4e71ce2a42d/movies");
       if (!responseData.ok) {
         throw new Error("Some Error Occured");
       }
       const data = await responseData.json();
       setResponse(data);
+      console.log(data)
       setIsLoading(false); //loading complete , data can be displayed
       //setApiButton(true);
     } catch (err) {
@@ -44,10 +47,10 @@ const Home = () => {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
-
+//console.log(response)
   return (
     <React.Fragment>
-      <section className="containersection">
+      {/* <section className="containersection">
         <h2 className="h2">TOURS</h2>
         <table className="table">
           <thead>
@@ -73,7 +76,8 @@ const Home = () => {
             })}
           </tbody>
         </table>
-      </section>
+      </section> */}
+      <Tours/>
       <section className="containersection">
         <button
           className="apiButton"
@@ -82,7 +86,7 @@ const Home = () => {
         >
           Add New Movie
         </button>
-        {isForm && <NewMovie hideForm={hideFormHandler} />}
+        {isForm && <NewMovie hideForm={hideFormHandler}  getdata={fetchData}/>}
       </section>
 
       <section>
@@ -97,7 +101,7 @@ const Home = () => {
           >
             Get Movies
           </button>
-          {response && !isLoading && (
+          {/* {response && !isLoading && (
             <div>
               <h1>{response.title}</h1>
               <h2>
@@ -106,7 +110,8 @@ const Home = () => {
                 <span>Produced By : {response.producer}</span>
               </h2>
             </div>
-          )}
+          )} */}
+          {response && <GetMovies data={response} getdata={fetchData}/> }
           {isLoading && (
             <p style={{ fontSize: "larger" }}>Getting Data Please Wait...</p>
           )}
