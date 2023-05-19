@@ -29,13 +29,15 @@ const Home = () => {
   const fetchData = useCallback(async () => {
     try {
       setIsLoading(true); //data is being received , please wait
-      const responseData = await fetch("https://crudcrud.com/api/37695353e0ed4a41a42fe4e71ce2a42d/movies");
+      const responseData = await fetch(
+        "https://crudcrud.com/api/c28067d0d4254f72a6cfd019cbf5473a/movies"
+      );
       if (!responseData.ok) {
         throw new Error("Some Error Occured");
       }
       const data = await responseData.json();
       setResponse(data);
-      console.log(data)
+      console.log(data);
       setIsLoading(false); //loading complete , data can be displayed
       //setApiButton(true);
     } catch (err) {
@@ -47,37 +49,10 @@ const Home = () => {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
-//console.log(response)
+  //console.log(response)
   return (
     <React.Fragment>
-      {/* <section className="containersection">
-        <h2 className="h2">TOURS</h2>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>City</th>
-              <th>Venue</th>
-              <th>Tickets</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tours.map((item) => {
-              return (
-                <tr key={item.id}>
-                  <td>{item.date}</td>
-                  <td>{item.city}</td>
-                  <td>{item.venue}</td>
-                  <td>
-                    <Button name="Buy Tickets"></Button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </section> */}
-      <Tours/>
+      <Tours />
       <section className="containersection">
         <button
           className="apiButton"
@@ -86,7 +61,7 @@ const Home = () => {
         >
           Add New Movie
         </button>
-        {isForm && <NewMovie hideForm={hideFormHandler}  getdata={fetchData}/>}
+        {isForm && <NewMovie hideForm={hideFormHandler} getdata={fetchData} />}
       </section>
 
       <section>
@@ -111,7 +86,7 @@ const Home = () => {
               </h2>
             </div>
           )} */}
-          {response && <GetMovies data={response} getdata={fetchData}/> }
+          {response && <GetMovies data={response} getdata={fetchData} />}
           {isLoading && (
             <p style={{ fontSize: "larger" }}>Getting Data Please Wait...</p>
           )}

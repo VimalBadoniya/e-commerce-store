@@ -6,6 +6,7 @@ import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import Cart from "../Cart/Cart";
 
+
 function RootUI() {
   const [isCart, setCart] = useState(false);
   const [isFooter , setFooter] = useState(true);

@@ -8,6 +8,13 @@
     outline: aquamarine;
     color: aquamarine;
     font-size: large;
+    appearance: textfield;
+}
+
+.form-input::-webkit-inner-spin-button,
+.form-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .form-label{

@@ -6,7 +6,7 @@ import Button from "../UI/Button";
 const NewMovie = (props) => {
   let nameRef = useRef(null);
   const [isLoading, setIsLoading] = useState(false);
-  // console.log(nameRef);
+  
   const directorRef = useRef(null);
   const producerRef = useRef(null);
   //  directorRef useEffect(()=>{console.log(inputRef.current.value);
@@ -23,7 +23,7 @@ const NewMovie = (props) => {
       producer: producerName,
     };
     await fetch(
-      "https://crudcrud.com/api/37695353e0ed4a41a42fe4e71ce2a42d/movies",
+      "https://crudcrud.com/api/c28067d0d4254f72a6cfd019cbf5473a/movies",
       {
         method: "POST",
         headers: {

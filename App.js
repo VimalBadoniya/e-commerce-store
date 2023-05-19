@@ -9,6 +9,7 @@ import About from "./About/About";
 import FAQ from "./FAQ/FAQ";
 import ErrorPage from "./UI/ErrorPage";
 import ProductDetailPage from "./UI/ProductDetailPage";
+import ContactUs from "./ContactUS/ContactUs";
 
 const myRouter = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const myRouter = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/faq", element: <FAQ /> },
       { path: "/store/:id", element: <ProductDetailPage /> },
+      {path : "/contact" , element : <ContactUs/>}
     ],
   },
 ]);

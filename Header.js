@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { FcAbout, FcFaq } from "react-icons/fc";
 import { BiHomeHeart } from "react-icons/bi";
 import { FaStore } from "react-icons/fa";
+import { FcContacts } from "react-icons/fc";
 import { BsCartCheckFill } from "react-icons/bs";
 import "./Header.css";
 import CartContext from "../source/cart-context";
@@ -37,6 +38,12 @@ const Header = (props) => {
             <FcFaq />
             <NavLink to="/faq" className="a">
               FAQ
+            </NavLink>
+          </li>
+          <li className="li">
+            <FcContacts />
+            <NavLink to="/contact" className="a">
+              Contact Us
             </NavLink>
           </li>
           <li className="li">

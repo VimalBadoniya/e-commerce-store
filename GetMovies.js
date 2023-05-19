@@ -7,7 +7,7 @@ function GetMovies(props) {
     setIsDeleting(true);
     //console.log("deleted");
     //console.log(id);
-    await fetch(`https://crudcrud.com/api/37695353e0ed4a41a42fe4e71ce2a42d/movies/${id}` , {
+    await fetch(`https://crudcrud.com/api/c28067d0d4254f72a6cfd019cbf5473a/movies/${id}` , {
         method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
