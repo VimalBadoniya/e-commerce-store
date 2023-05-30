@@ -8,7 +8,6 @@ import "./Header.css";
 import CartContext from "../source/cart-context";
 import { NavLink } from "react-router-dom";
 
-
 const Header = (props) => {
   const ctx = useContext(CartContext);
 
@@ -24,7 +23,7 @@ const Header = (props) => {
           </li>
           <li className="li">
             <FaStore className="white-icon" />
-            <NavLink to="/store" className="a"  >
+            <NavLink to="/store" className="a">
               Store
             </NavLink>
           </li>
@@ -47,13 +46,16 @@ const Header = (props) => {
             </NavLink>
           </li>
           <li className="li">
-            
             <button className="button" onClick={props.onCart}>
               <BsCartCheckFill />
               Your Cart <span>{ctx.totalQuantity}</span>
             </button>
           </li>
-          
+          <li className="li">
+            <button className="button" onClick={props.onLogout}>
+              Logout
+            </button>
+          </li>
         </ul>
       </nav>
     </header>

@@ -11,13 +11,15 @@ import ErrorPage from "./UI/ErrorPage";
 import ProductDetailPage from "./UI/ProductDetailPage";
 import ContactUs from "./ContactUS/ContactUs";
 
+
 const myRouter = createBrowserRouter([
   {
     path: "/",
     element: <RootUI />,
     errorElement: <ErrorPage />,
     children: [
-      { index : true, element: <Home /> },
+      
+      { index:true, element: <Home /> },
       { path: "/store", element: <Store /> },
       { path: "/about", element: <About /> },
       { path: "/faq", element: <FAQ /> },

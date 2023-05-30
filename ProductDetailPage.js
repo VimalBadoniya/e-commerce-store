@@ -16,6 +16,10 @@ const ProductDetailPage = () => {
       <h1>{item.title}</h1>
       <img src={item.imageUrl} alt="product" />
       <h2>₹{item.price}</h2>
+      <div>
+        <h4>Reviews</h4>
+        <p>This is a review about product</p>
+      </div>
       <Link className="button1" to=".." relative="path">Back</Link>
 
       {/* <p>{myParam.id}</p> */}
